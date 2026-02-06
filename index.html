@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TL Caracas Comunicaciones - Servicios de telecomunicaciones de alta calidad en la capital de Venezuela.">
+    <title>TL Comunicaciones | Conectividad en Caracas</title>
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #f4f7f6;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+            line-height: 1.6; 
+            color: var(--secondary);
+            background-color: var(--white);
+        }
+
+        /* Animaciones Base */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { animation: fadeIn 0.8s ease-out forwards; }
+
+        /* Navegación Semántica */
+        header {
+            background: var(--white);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--secondary); font-weight: 500; transition: var(--transition); }
+        nav a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #004a99 0%, #0072ff 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* Secciones Generales */
+        section { padding: 80px 10%; }
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; position: relative; }
+        h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin: 10px auto; }
+
+        /* Servicios (Articles para SEO) */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* Misión */
+        .mision-section { background: var(--secondary); color: var(--white); text-align: center; }
+        .mision-content { max-width: 800px; margin: 0 auto; font-size: 1.25rem; font-style: italic; }
+
+        /* Formulario y Footer */
+        footer { background: var(--light); padding: 80px 10% 20px; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        form { display: grid; gap: 15px; background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .form-group { display: flex; flex-direction: column; }
+        label { margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(0,86,179,0.1); }
+        
+        button { 
+            background: var(--primary); color: var(--white); padding: 15px; border: none; 
+            border-radius: 6px; cursor: pointer; font-weight: 700; transition: var(--transition);
+        }
+        button:hover { background: #004494; letter-spacing: 1px; }
+
+        .footer-info { display: flex; flex-direction: column; justify-content: center; }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            nav { display: none; } /* En un proyecto real aquí iría un menú hamburguesa */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">TL Comunicaciones</a>
+        <nav>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#mision">Misión</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="reveal">Expertos en Soluciones Tecnológicas</h1>
+            <p class="reveal" style="animation-delay: 0.2s;">Conectamos Caracas con la mejor infraestructura en telecomunicaciones.</p>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-container">
+                <article class="service-card">
+                    <h3>Internet Residencial</h3>
+                    <p>Conexión estable de alta velocidad adaptada a las necesidades del hogar caraqueño.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Telefonía Digital</h3>
+                    <p>Comunicación clara y sin interrupciones con planes nacionales e internacionales.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Soporte Técnico</h3>
+                    <p>Mantenimiento preventivo y correctivo de sistemas para empresas y particulares.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="mision" class="mision-section">
+            <h2>Nuestra Misión</h2>
+            <div class="mision-content reveal">
+                <p>"TL Caracas Comunicaciones nació con la misión de ofrecer servicios de telecomunicaciones de alta calidad en la capital de Venezuela."</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <div class="contact-grid">
+            <div class="footer-info">
+                <h3>¿Necesitas asesoría técnica?</h3>
+                <p>Déjanos tus datos y un especialista se pondrá en contacto contigo para resolver tus dudas de conectividad o soporte informático.</p>
+                <br>
+                <address>
+                    <strong>TL Caracas Comunicaciones</strong><br>
+                    Caracas, Venezuela.
+                </address>
+            </div>
+
+            <form action="#">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" required placeholder="Ej. Pérez">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="celular">Número de Celular</label>
+                    <input type="tel" id="celular" name="celular" required placeholder="0412-0000000">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" required placeholder="juan@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Cuéntanos tu problemática</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Describe brevemente el problema técnico o servicio que requieres..."></textarea>
+                </div>
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </div>
+        <p style="text-align: center; font-size: 0.8rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px;">
+            &copy; 2025 TL Comunicaciones - Proyecto Sociotecnológico UNEXCA.
+        </p>
+    </footer>
+
+</body>
+</html>
