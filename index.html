@@ -16,26 +16,26 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body { 
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
             line-height: 1.6; 
             color: var(--secondary);
             background-color: var(--white);
+            -webkit-tap-highlight-color: transparent; /* Mejora táctil en móviles */
         }
 
-        /* Animaciones Base */
+        /* --- Animaciones --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .reveal { animation: fadeIn 0.8s ease-out forwards; }
 
-        /* Navegación Semántica */
+        /* --- Navegación --- */
         header {
             background: var(--white);
-            padding: 1.2rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,72 +45,109 @@
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-decoration: none; }
         nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { text-decoration: none; color: var(--secondary); font-weight: 500; transition: var(--transition); }
-        nav a:hover { color: var(--primary); }
+        nav a { text-decoration: none; color: var(--secondary); font-weight: 500; }
 
-        /* Hero */
+        /* --- Hero --- */
         .hero {
-            padding: 100px 5%;
+            padding: 60px 5%;
             background: linear-gradient(135deg, #004a99 0%, #0072ff 100%);
             color: var(--white);
             text-align: center;
         }
 
-        /* Secciones Generales */
-        section { padding: 80px 10%; }
-        h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; position: relative; }
+        /* --- Secciones --- */
+        section { padding: 60px 5%; }
+        h2 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
         h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin: 10px auto; }
 
-        /* Servicios (Articles para SEO) */
+        /* --- Servicios --- */
         .services-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
-
         .service-card {
             background: var(--light);
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
-            transition: var(--transition);
             text-align: center;
         }
 
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* Misión */
+        /* --- Misión --- */
         .mision-section { background: var(--secondary); color: var(--white); text-align: center; }
-        .mision-content { max-width: 800px; margin: 0 auto; font-size: 1.25rem; font-style: italic; }
+        .mision-content { max-width: 800px; margin: 0 auto; font-size: 1.1rem; font-style: italic; }
 
-        /* Formulario y Footer */
-        footer { background: var(--light); padding: 80px 10% 20px; }
+        /* --- Formulario y Footer --- */
+        footer { background: var(--light); padding: 60px 5% 20px; }
+        
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 40px;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto 40px;
         }
 
-        form { display: grid; gap: 15px; background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        form { 
+            display: grid; 
+            gap: 15px; 
+            background: var(--white); 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        }
+
+        /* Contenedor Nombre/Apellido responsivo */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
         .form-group { display: flex; flex-direction: column; }
-        label { margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
-        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; transition: 0.3s; }
-        input:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(0,86,179,0.1); }
+        label { margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
         
-        button { 
-            background: var(--primary); color: var(--white); padding: 15px; border: none; 
-            border-radius: 6px; cursor: pointer; font-weight: 700; transition: var(--transition);
+        /* Inputs optimizados para dedos (mínimo 44px de altura) */
+        input, textarea { 
+            padding: 14px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            font-size: 16px; /* Evita zoom automático en iOS */
+            width: 100%;
         }
-        button:hover { background: #004494; letter-spacing: 1px; }
 
-        .footer-info { display: flex; flex-direction: column; justify-content: center; }
+        button { 
+            background: var(--primary); 
+            color: var(--white); 
+            padding: 16px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            font-size: 1rem;
+        }
 
+        /* --- MEDIA QUERIES PARA MÓVILES --- */
         @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
-            nav { display: none; } /* En un proyecto real aquí iría un menú hamburguesa */
+            header { padding: 1rem 5%; }
+            nav { display: none; } /* Oculto para simplificar en móvil */
+            
+            .contact-grid { 
+                grid-template-columns: 1fr; /* Una sola columna en móvil */
+                gap: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr; /* Nombre y Apellido uno sobre otro */
+            }
+
+            h2 { font-size: 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            
+            footer { padding: 40px 5% 20px; }
+            form { padding: 20px; }
         }
     </style>
 </head>
@@ -130,7 +167,7 @@
     <main>
         <section class="hero">
             <h1 class="reveal">Expertos en Soluciones Tecnológicas</h1>
-            <p class="reveal" style="animation-delay: 0.2s;">Conectamos Caracas con la mejor infraestructura en telecomunicaciones.</p>
+            <p class="reveal" style="animation-delay: 0.2s;">Conectamos Caracas con la mejor infraestructura.</p>
         </section>
 
         <section id="servicios">
@@ -138,23 +175,23 @@
             <div class="services-container">
                 <article class="service-card">
                     <h3>Internet Residencial</h3>
-                    <p>Conexión estable de alta velocidad adaptada a las necesidades del hogar caraqueño.</p>
+                    <p>Conexión estable de alta velocidad adaptada al hogar caraqueño.</p>
                 </article>
                 <article class="service-card">
                     <h3>Telefonía Digital</h3>
-                    <p>Comunicación clara y sin interrupciones con planes nacionales e internacionales.</p>
+                    <p>Comunicación clara con planes nacionales e internacionales.</p>
                 </article>
                 <article class="service-card">
                     <h3>Soporte Técnico</h3>
-                    <p>Mantenimiento preventivo y correctivo de sistemas para empresas y particulares.</p>
+                    <p>Mantenimiento preventivo y correctivo para empresas.</p>
                 </article>
             </div>
         </section>
 
         <section id="mision" class="mision-section">
-            <h2>Nuestra Misión</h2>
             <div class="mision-content reveal">
-                <p>"TL Caracas Comunicaciones nació con la misión de ofrecer servicios de telecomunicaciones de alta calidad en la capital de Venezuela."</p>
+                <h2>Nuestra Misión</h2>
+                <p>"Ofrecer servicios de telecomunicaciones de alta calidad en la capital de Venezuela."</p>
             </div>
         </section>
     </main>
@@ -162,8 +199,8 @@
     <footer id="contacto">
         <div class="contact-grid">
             <div class="footer-info">
-                <h3>¿Necesitas asesoría técnica?</h3>
-                <p>Déjanos tus datos y un especialista se pondrá en contacto contigo para resolver tus dudas de conectividad o soporte informático.</p>
+                <h3>¿Necesitas asesoría?</h3>
+                <p>Déjanos tus datos y un especialista te contactará a la brevedad.</p>
                 <br>
                 <address>
                     <strong>TL Caracas Comunicaciones</strong><br>
@@ -172,33 +209,38 @@
             </div>
 
             <form action="#">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan">
+                        <input type="text" id="nombre" name="nombre" required placeholder="Juan">
                     </div>
                     <div class="form-group">
                         <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" required placeholder="Ej. Pérez">
+                        <input type="text" id="apellido" name="apellido" required placeholder="Pérez">
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="celular">Número de Celular</label>
                     <input type="tel" id="celular" name="celular" required placeholder="0412-0000000">
                 </div>
+
                 <div class="form-group">
                     <label for="correo">Correo Electrónico</label>
                     <input type="email" id="correo" name="correo" required placeholder="juan@ejemplo.com">
                 </div>
+
                 <div class="form-group">
-                    <label for="mensaje">Cuéntanos tu problemática</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Describe brevemente el problema técnico o servicio que requieres..."></textarea>
+                    <label for="mensaje">¿En qué podemos ayudarte?</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Describe tu requerimiento..."></textarea>
                 </div>
+
                 <button type="submit">Enviar Solicitud</button>
             </form>
         </div>
-        <p style="text-align: center; font-size: 0.8rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px;">
-            &copy; 2025 TL Comunicaciones - Proyecto Sociotecnológico UNEXCA.
+        
+        <p style="text-align: center; font-size: 0.75rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px;">
+            &copy; 2026 TL Comunicaciones - Proyecto UNEXCA.
         </p>
     </footer>
 
